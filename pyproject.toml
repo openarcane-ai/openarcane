@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "openarcane"
+dynamic = ["version"]
+description = "Text normaliser for 25 Indian languages and English, made for text-to-speech (Volt-TTS)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "OpenArcane contributors" }]
+keywords = ["tts", "text-to-speech", "indian-languages", "indic", "text-normalization", "speech"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Text Processing :: Linguistic",
+]
+# Standard library only: no dependencies.
+dependencies = []
+
+[project.urls]
+"Volt-TTS" = "https://huggingface.co/openarcane/Volt-TTS"
+Repository = "https://github.com/openarcane-ai/openarcane"
+Issues = "https://github.com/openarcane-ai/openarcane/issues"
+
+[tool.hatch.version]
+path = "openarcane/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["openarcane"]
+
+[tool.hatch.build.targets.sdist]
+include = ["openarcane", "tests", "docs", "tools", "README.md", "CHANGELOG.md", "LICENSE", "NOTICE",
+           "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
